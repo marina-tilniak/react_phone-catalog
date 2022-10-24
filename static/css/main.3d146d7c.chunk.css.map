@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.scss"],"names":[],"mappings":"AAAA,KACE,gBAAiB,CAEjB,2FAA8F","file":"main.3d146d7c.chunk.css","sourcesContent":[".App {\n  font-family: Mont;\n\n  background-image: url(\"https://marins.github.io/react_phone-catalog/img/phones/lg-axis.0.jpg\");\n}\n"]}

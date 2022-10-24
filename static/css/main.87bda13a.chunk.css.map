@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/App.scss"],"names":[],"mappings":"AAAA,KACE,gBAAiB,CAEjB,uGAA0G","file":"main.87bda13a.chunk.css","sourcesContent":[".App {\n  font-family: Mont;\n\n  background-image: url(\"https://oleh-khashchevskyi.github.io/react_phone-catalog/img/phones/lg-axis.0.jpg\");\n}\n"]}
