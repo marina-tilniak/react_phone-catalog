@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
 import { Products } from '../../components/Products';
 import { Notification } from '../../components/Notification';

@@ -52,9 +52,9 @@ export const ProductItem: FC<Props> = ({
         className="product__link"
       >
         {images ? (
-          <img className="product__image" src={`/public/_new/${images[0]}`} alt="Phone" />
+          <img className="product__image" src={`/_new/${images[0]}`} alt="Phone" />
         ) : (
-          <img className="product__image" src={`/public/_new/${image}`} alt="Phone" />
+          <img className="product__image" src={`/_new/${image}`} alt="Phone" />
         )}
         <h2 className={`product__name product__name--${theme}`}>{name}</h2>
       </Link>

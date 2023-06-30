@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import useSwr from 'swr';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetcher, BASE_URL } from '../../api/productsApi';
 import { PathContainer } from '../../components/PathContainer';
 import { BackToHomeButton } from '../../components/BackToHomeButton/BackToHomeButton';
@@ -25,6 +25,8 @@ export const ProductDetailsPage: FC = () => {
         if (error) {
           return <div>An error occurred</div>;
         }
+
+        return null;
       },
       suspense: true,
     },
@@ -47,8 +49,8 @@ export const ProductDetailsPage: FC = () => {
   } = product;
 
   const [currentImage, setCurrentImage] = useState('');
-  const [currentColor, setCurrentColor] = useState('');
-  const [currentCapacity, setCurrentCapacity] = useState('');
+  // const [currentColor, setCurrentColor] = useState('');
+  // const [currentCapacity, setCurrentCapacity] = useState('');
   const [generatedProducts, setGeneratedProducts] = useState<Product[]>([]);
 
   const favoriteProducts
@@ -74,8 +76,8 @@ export const ProductDetailsPage: FC = () => {
   }, [products]);
 
   useEffect(() => {
-    setCurrentColor(pathname.split('-')[pathname.split('-').length - 1]);
-    setCurrentCapacity(pathname.split('-')[pathname.split('-').length - 2]);
+    // setCurrentColor(pathname.split('-')[pathname.split('-').length - 1]);
+    // setCurrentCapacity(pathname.split('-')[pathname.split('-').length - 2]);
     setCurrentImage(images[0]);
   }, [pathname]);
 
@@ -99,7 +101,7 @@ export const ProductDetailsPage: FC = () => {
                 onClick={() => setCurrentImage(image)}
               >
                 <img
-                  src={`../../../public/_new/${image}`}
+                  src={`../../../_new/${image}`}
                   alt="Image in the list"
                   className={`product-details__small-image product-details__small-image--${theme}`}
                 />
@@ -108,7 +110,7 @@ export const ProductDetailsPage: FC = () => {
           </ul>
 
           <img
-            src={`../../../public/_new/${currentImage}`}
+            src={`../../../_new/${currentImage}`}
             className={`product-details__preview-image product-details__preview-image--${theme}`}
             alt="Preview"
           />
@@ -119,15 +121,16 @@ export const ProductDetailsPage: FC = () => {
               <p className="product-details__control-panel-title">Available colors</p>
               <ul className="product-details__available-colors">
                 {colorsAvailable.map((color: string) => (
-                  <Link
-                    to={pathname.replace(currentColor, color)}
-                    className={classNames(`product-details__color-circle-container product-details__color-circle-container--${theme}`,
-                      { 'product-details__color-circle-container--active': currentColor === color },
-                      { [`product-details__color-circle-container--active__${theme}`]: currentColor === color })}
-                    key={color}
-                  >
-                    <div className={`product-details__color-circle product-details__color-circle--${color}`} />
-                  </Link>
+                  color
+                  // <Link
+                  //   to={pathname.replace(currentColor, color)}
+                  //   className={classNames(`product-details__color-circle-container product-details__color-circle-container--${theme}`,
+                  //     { 'product-details__color-circle-container--active': currentColor === color },
+                  //     { [`product-details__color-circle-container--active__${theme}`]: currentColor === color })}
+                  //   key={color}
+                  // >
+                  //   <div className={`product-details__color-circle product-details__color-circle--${color}`} />
+                  // </Link>
                 ))}
               </ul>
             </div>
@@ -135,15 +138,16 @@ export const ProductDetailsPage: FC = () => {
               <p className="product-details__control-panel-title">Select capacity</p>
               <ul className="product-details__capacity-options">
                 {capacityAvailable.map((capacity: string) => (
-                  <Link
-                    to={pathname.replace(currentCapacity, capacity.toLowerCase())}
-                    className={classNames('product-details__capacity-value', `product-details__capacity-value--${theme}`,
-                      { 'product-details__capacity-value--active': currentCapacity === capacity.toLowerCase() },
-                      { [`product-details__capacity-value--active__${theme}`]: currentCapacity === capacity.toLowerCase() })}
-                    key={capacity}
-                  >
-                    {capacity}
-                  </Link>
+                  capacity
+                  // <Link
+                  //   to={pathname.replace(currentCapacity, capacity.toLowerCase())}
+                  //   className={classNames('product-details__capacity-value', `product-details__capacity-value--${theme}`,
+                  //     { 'product-details__capacity-value--active': currentCapacity === capacity.toLowerCase() },
+                  //     { [`product-details__capacity-value--active__${theme}`]: currentCapacity === capacity.toLowerCase() })}
+                  //   key={capacity}
+                  // >
+                  //   {capacity}
+                  // </Link>
                 ))}
               </ul>
             </div>

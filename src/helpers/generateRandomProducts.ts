@@ -10,5 +10,5 @@ export const generateRandomProducts = (initialProducts: Product[]) => {
     randomIndex = Math.floor(Math.random() * initialProducts.length);
   }
 
-  return [...new Set(newRandomProducts)];
+  return [...newRandomProducts];
 };
